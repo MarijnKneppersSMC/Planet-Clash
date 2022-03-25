@@ -1,6 +1,6 @@
 import P5 from "p5";
 
-let p5: P5;
+var p5: P5;
 
 export function initiazeRenderer(p5: P5)
 {
