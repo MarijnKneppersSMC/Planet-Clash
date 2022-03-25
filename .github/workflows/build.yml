@@ -1,0 +1,11 @@
+name: build
+run-on: ubuntu-latest
+
+on: ["workflow_trigger", "push", "pull_request"]
+
+jobs:
+  build:
+    steps:
+      - name: dir
+        runs: |
+          dir
