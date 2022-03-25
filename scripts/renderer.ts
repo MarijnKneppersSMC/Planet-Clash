@@ -1,7 +1,13 @@
-import vector2 from "./vector2";
 import P5 from "p5";
 
-export function drawAtPosition(position: vector2, p5: P5)
-	{
-		p5.background(220);
-	}
+let p5: P5;
+
+export function initiazeRenderer(p5: P5)
+{
+	this.p5 = p5;
+}
+
+export function drawBackground()
+{
+	p5.clear(0, 0, 0, 0);
+}
