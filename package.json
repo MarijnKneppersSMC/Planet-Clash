@@ -17,5 +17,6 @@
   "scripts": {
     "build": "gulp build",
     "start": "gulp start"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
