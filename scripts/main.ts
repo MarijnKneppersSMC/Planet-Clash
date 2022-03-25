@@ -1,5 +1,5 @@
 import P5 from "p5";
-import {drawBackground, initiazeRenderer} from "./renderer";
+import Renderer from "./renderer";
 
 const sketch = (p5: P5) =>
 {
@@ -9,13 +9,13 @@ const sketch = (p5: P5) =>
 	{
 		canvas = p5.createCanvas(800, 450);
 		canvas.parent("app");
-		initiazeRenderer(p5);
-		drawBackground();
+		Renderer.initiazeRenderer(p5);
+		Renderer.drawBackground();
 	}
 
 	p5.draw =() =>
 	{
-		drawBackground();
+		Renderer.drawBackground();
 	}
 }
 
