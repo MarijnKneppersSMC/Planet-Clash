@@ -7,5 +7,5 @@ jobs:
   build:
     steps:
       - name: dir
-        runs: |
+        run: |
           dir
