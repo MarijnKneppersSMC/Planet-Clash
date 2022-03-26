@@ -1,4 +1,4 @@
-dist/
+dest/
 node_modules/
 
 #yarn files
