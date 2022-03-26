@@ -1,11 +1,12 @@
-import vector2 from "./vector2";
+import P5 from "p5";
+import { vector2 } from "./vectors";
 
 export default class Planet{
 
-	position: vector2;
+	position: P5.Vector;
 	
-	constructor(position: vector2)
+	constructor(position: P5.Vector)
 	{
-		
+		this.position = position;
 	}
 }

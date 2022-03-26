@@ -9,8 +9,13 @@ async function buildHTML() {
 }
 
 function buildImage() {
-	return gulp.src('images/*')
+	return gulp.src('images/**')
 	.pipe(gulp.dest('dest/images'));
+}
+
+function buildAudio() {
+	return gulp.src('audio/**')
+	.pipe(gulp.dest('dest/audio'));
 }
 
 async function buildJS() {
@@ -37,11 +42,12 @@ function server() {
 
 function watch() {
 	gulp.watch(["./index.html"], buildHTML);
-	gulp.watch(["./scripts/*.ts"], buildJS);
-	gulp.watch(["./images/*"], buildImage);
+	gulp.watch(["./scripts/**"], buildJS);
+	gulp.watch(["./audio/**"], buildAudio);
+	gulp.watch(["./images/**"], buildImage);
 }
 
-const build = gulp.parallel(buildHTML, buildJS, buildImage);
+const build = gulp.parallel(buildHTML, buildJS, buildImage, buildAudio);
 
 exports.build = build;
 exports.start = gulp.series(build, gulp.parallel(server, watch));
