@@ -1,38 +1,19 @@
-export class vector2 {
-	x: number;
-	y: number;
+import { Vector } from "p5";
 
-	constructor(x: number, y: number) {
-		this.x = x;
-		this.y = y;
+
+export const moveTowards = (position: Vector, target: Vector, maxDistance: number): void => {
+	let xVector: number = target.x - position.x;
+	let yVector: number = target.y - position.y;
+
+	let sqDist: number = xVector * xVector + yVector * yVector;
+
+	if (sqDist == 0 || (maxDistance >= 0 && sqDist <= maxDistance * maxDistance)) {
+		position.x = target.x;
+		position.y = target.y;
 	}
 
-	moveTowards(target: vector2, maxDistance: number): void {
-		let xVector: number = target.x - this.x;
-		let yVector: number = target.y - this.y;
+	let dist = Math.sqrt(sqDist);
 
-		let sqDist: number = xVector * xVector + yVector * yVector;
-
-		if (sqDist == 0 || (maxDistance >= 0 && sqDist <= maxDistance * maxDistance)) {
-			this.x = target.x;
-			this.y = target.y;
-		}
-
-		let dist = Math.sqrt(sqDist);
-
-		this.x = this.x + xVector / dist * maxDistance;
-		this.y = this.y + yVector / dist * maxDistance;
-	}
-}
-
-export class vector3 {
-	x: number;
-	y: number;
-	z: number
-
-	constructor(x: number, y: number, z: number) {
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
+	position.x = position.x + xVector / dist * maxDistance;
+	position.y = position.y + yVector / dist * maxDistance;
 }

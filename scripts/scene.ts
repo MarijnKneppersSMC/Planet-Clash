@@ -1,4 +1,3 @@
-import Renderer from "./renderer";
 import { drawTitleScreen, initializeTitleScreen, updateTitleScreen } from "./scenes/titleScreen";
 import Game from "./main";
 

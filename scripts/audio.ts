@@ -1,4 +1,3 @@
-import P5 from "p5"
 import Game from "./main"
 
 export default class Audio

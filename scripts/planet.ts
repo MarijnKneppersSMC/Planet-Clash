@@ -1,5 +1,4 @@
 import P5 from "p5";
-import { vector2 } from "./vectors";
 
 export default class Planet{
 

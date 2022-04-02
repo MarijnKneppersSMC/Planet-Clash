@@ -1,4 +1,3 @@
-import { error } from "console";
 import P5 from "p5";
 import Game from "./main";
 

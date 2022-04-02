@@ -1,4 +1,4 @@
-import P5, { Vector } from "p5";
+import { Vector } from "p5";
 import Renderer from "../renderer";
 import Game from "../main";
 
