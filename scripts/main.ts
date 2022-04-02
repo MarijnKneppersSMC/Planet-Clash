@@ -10,6 +10,7 @@ const sketch = (p5: P5) =>
 	p5.setup = () =>
 	{
 		Game.p5 = p5;
+		Game.startTime = p5.millis();
 
 		canvas = p5.createCanvas(800, 450);
 		canvas.parent("app");
@@ -23,6 +24,8 @@ const sketch = (p5: P5) =>
 
 	p5.draw =() =>
 	{
+		Game.passedTime = p5.millis() - Game.startTime;
+
 		updateScene();
 
 		Renderer.drawImage("background");
@@ -38,4 +41,6 @@ export default class Game
 	static p5: P5;
 	static scene: SceneType;
 	static level: number;
+	static startTime: number;
+	static passedTime: number;
 }
