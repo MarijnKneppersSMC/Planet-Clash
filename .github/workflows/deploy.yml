@@ -35,7 +35,7 @@ jobs:
         run: |
           cd ../dest/
           git add .
-          git commit -m ${{github.event.head_commit.message}}
+          git commit -m "${{github.event.head_commit.message}}"
           
       - name: Publish
         run: |
