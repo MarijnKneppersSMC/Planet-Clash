@@ -33,10 +33,12 @@ jobs:
           
       - name: Commit
         run: |
+          cd ../dest/
           git add .
           git commit -m ${{github.event.head_commit.message}}
           
       - name: Publish
         run: |
+          cd ../dest/
           git push -f https://${{ secrets.DEPLOY_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
 
