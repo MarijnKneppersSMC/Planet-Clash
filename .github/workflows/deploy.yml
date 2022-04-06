@@ -23,7 +23,20 @@ jobs:
       - name: Copy
         run: |
           cp ./dest/ ../ -r
-          cd ../
-          dir
-          cd dest
-          dir
+      
+      - name: Initialise
+        run: |
+          cd ../dest/
+          git init
+          git config user.name ${{GITHUB_ACTOR}}
+          git config user.email ${{GITHUB_ACTOR}}@users.noreply.github.com
+          
+      - name: Commit
+        run: |
+          git add .
+          git commit -m ${{github.event.head_commit.message}}
+          
+      - name: Publish
+        run: |
+          git push -f https://${{ secrets.DEPLOY_TOKEN }}@github.com/${{ GITHUB_REPOSITORY }}.git HEAD:gh-pages
+
