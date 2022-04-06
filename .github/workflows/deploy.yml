@@ -22,7 +22,7 @@ jobs:
         
       - name: Copy
         run: |
-          cp ./dest/ ../
+          cp ./dest/ ../ -r
           cd ../
           dir
           cd dest
