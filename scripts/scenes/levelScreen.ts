@@ -26,7 +26,7 @@ export function initializeLevelScreen()
 
 export function drawLevelScreen()
 {
-	Renderer.drawText(currentLevel.name, 21, 0, 0, new Vector(255, 255, 255), "left", "top");
+	Renderer.drawText(`Level ${Game.level} - ${currentLevel.name}`, 20, 1, 1, new Vector(255, 255, 255), "left", "top");
 }
 
 export function updateLevelScreen()
