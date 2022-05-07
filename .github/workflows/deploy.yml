@@ -12,8 +12,33 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - uses: sterlingwes/gh-pages-deploy-action@v1.1
-        with:
-          access-token: ${{ secrets.DEPLOY_TOKEN }}
-          source-directory: dist
-          build-command: yarn build
+      - name: Install Dependencies
+        run: |
+          yarn install
+  
+      - name: Build Project
+        run: |
+          yarn build
+        
+      - name: Copy
+        run: |
+          cp ./dest/ ../ -r
+      
+      - name: Initialise
+        run: |
+          cd ../dest/
+          git init
+          git config user.name ${{github.actor}}
+          git config user.email ${{github.actor}}@users.noreply.github.com
+          
+      - name: Commit
+        run: |
+          cd ../dest/
+          git add .
+          git commit -m "${{github.event.head_commit.message}}"
+          
+      - name: Publish
+        run: |
+          cd ../dest/
+          git push -f https://${{ secrets.DEPLOY_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
+
