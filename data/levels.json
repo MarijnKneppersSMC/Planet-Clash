@@ -1,0 +1,8 @@
+{
+	"levels": [
+		{
+			"name": "random movement",
+			"nextLevel": 2
+		}
+	]
+}

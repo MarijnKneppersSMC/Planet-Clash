@@ -8,6 +8,11 @@ async function buildHTML() {
 	return gulp.src(["index.html"]).pipe(gulp.dest("dest")).pipe(connect.reload());
 }
 
+async function buildData()
+{
+	return gulp.src(["data/**"]).pipe(gulp.dest("dest/data")).pipe(connect.reload());
+}
+
 function buildImage() {
 	return gulp.src('images/**')
 	.pipe(gulp.dest('dest/images'));
@@ -45,9 +50,10 @@ function watch() {
 	gulp.watch(["./scripts/**"], buildJS);
 	gulp.watch(["./audio/**"], buildAudio);
 	gulp.watch(["./images/**"], buildImage);
+	gulp.watch(["./data/**"], buildData);
 }
 
-const build = gulp.parallel(buildHTML, buildJS, buildImage, buildAudio);
+const build = gulp.parallel(buildHTML, buildJS, buildImage, buildAudio, buildData);
 
 exports.build = build;
 exports.start = gulp.series(build, gulp.parallel(server, watch));

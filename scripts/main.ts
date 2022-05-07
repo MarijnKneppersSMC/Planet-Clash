@@ -2,6 +2,7 @@ import P5 from "p5";
 import Renderer from "./renderer";
 import { drawScene, initializeScene, SceneType, updateScene } from "./scene";
 import Audio from "./audio";
+import { InitializeLevelData } from "./scenes/levelScreen";
 
 const sketch = (p5: P5) =>
 {
@@ -18,6 +19,8 @@ const sketch = (p5: P5) =>
 		Renderer.drawImage("background");
 
 		Audio.intializeAudio();
+
+		InitializeLevelData();
 
 		initializeScene(SceneType.TITLE)
 	}
@@ -43,4 +46,9 @@ export default class Game
 	static level: number;
 	static startTime: number;
 	static passedTime: number;
+
+	static reset(): void {
+		initializeScene(SceneType.TITLE);
+		this.level = 1;
+	}
 }

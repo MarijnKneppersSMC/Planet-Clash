@@ -1,6 +1,7 @@
 import { Vector } from "p5";
 import Renderer from "../renderer";
 import Game from "../main";
+import { initializeScene, SceneType } from "../scene";
 
 export function initializeTitleScreen()
 {
@@ -21,7 +22,7 @@ export function updateTitleScreen()
 	{
 		if(Game.p5.mouseButton == Game.p5.LEFT)
 		{
-			//next scene logic
+			initializeScene(SceneType.LEVEL);
 		}
 	}
 }
