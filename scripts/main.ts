@@ -22,7 +22,7 @@ const sketch = (p5: P5) =>
 
 		InitializeLevelData();
 
-		initializeScene(SceneType.TITLE)
+		Game.reset();
 	}
 
 	p5.draw =() =>

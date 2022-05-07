@@ -1,4 +1,10 @@
+import { debug } from "console";
+import { Vector } from "p5";
+import Game from "../main";
+import Renderer from "../renderer";
+
 let levelData: LevelData;
+let currentLevel: Level;
 
 export function InitializeLevelData()
 {
@@ -15,5 +21,15 @@ export function InitializeLevelData()
 
 export function initializeLevelScreen()
 {
-	console.log(levelData)
+	currentLevel = levelData.levels[Game.level - 1];
+}
+
+export function drawLevelScreen()
+{
+	Renderer.drawText(currentLevel.name, 21, 0, 0, new Vector(255, 255, 255), "left", "top");
+}
+
+export function updateLevelScreen()
+{
+	
 }

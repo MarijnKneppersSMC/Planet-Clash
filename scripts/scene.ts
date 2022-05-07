@@ -1,6 +1,6 @@
 import { drawTitleScreen, initializeTitleScreen, updateTitleScreen } from "./scenes/titleScreen";
 import Game from "./main";
-import { initializeLevelScreen } from "./scenes/levelScreen";
+import { drawLevelScreen, initializeLevelScreen, updateLevelScreen } from "./scenes/levelScreen";
 
 export enum SceneType
 {
@@ -30,6 +30,9 @@ export function drawScene()
 		case SceneType.TITLE:
 			drawTitleScreen();
 			break;
+		case SceneType.LEVEL:
+			drawLevelScreen();
+			break;
 	}
 }
 
@@ -39,6 +42,9 @@ export function updateScene()
 	{
 		case SceneType.TITLE:
 			updateTitleScreen();
+			break;
+		case SceneType.LEVEL:
+			updateLevelScreen();
 			break;
 	}
 }
