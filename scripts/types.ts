@@ -1,8 +1,12 @@
-type Level = {
+import Planet from "./planet";
+
+export type Level = {
 	name: string;
 	nextLevel: number | "end";
+	duration: number;
+	planets: Planet[];
 }
 
-type LevelData = {
+export type LevelData = {
 	levels: Level[];
 }

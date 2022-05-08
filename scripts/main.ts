@@ -1,6 +1,6 @@
 import P5 from "p5";
 import Renderer from "./renderer";
-import { drawScene, initializeScene, SceneType, updateScene } from "./scene";
+import { drawScene, initializeScene, SceneType, touchStarted, updateScene } from "./scene";
 import Audio from "./audio";
 import { InitializeLevelData } from "./scenes/levelScreen";
 
@@ -12,6 +12,7 @@ const sketch = (p5: P5) =>
 	{
 		Game.p5 = p5;
 		Game.startTime = p5.millis();
+		Game.frameTime = p5.millis();
 
 		canvas = p5.createCanvas(800, 450);
 		canvas.parent("app");
@@ -25,15 +26,24 @@ const sketch = (p5: P5) =>
 		Game.reset();
 	}
 
-	p5.draw =() =>
+	p5.draw = () =>
 	{
 		Game.passedTime = p5.millis() - Game.startTime;
+
+		Game.frameTime = (p5.millis() - Game.lastFrame)/1000;
+
+		Game.lastFrame = p5.millis();
 
 		updateScene();
 
 		Renderer.drawImage("background");
 
 		drawScene();
+	}
+
+	p5.touchStarted = () =>
+	{
+		touchStarted();
 	}
 }
 
@@ -46,9 +56,15 @@ export default class Game
 	static level: number;
 	static startTime: number;
 	static passedTime: number;
+	static lastFrame: number;
+	static frameTime: number;
+	static success: boolean;
 
 	static reset(): void {
 		initializeScene(SceneType.TITLE);
 		this.level = 1;
+		this.success = false;
+		this.startTime = this.p5.millis();
+		this.passedTime = 0;
 	}
 }

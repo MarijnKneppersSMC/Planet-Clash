@@ -2,6 +2,7 @@
 	"levels": [
 		{
 			"name": "random movement",
+			"duration": 15,
 			"nextLevel": 2
 		}
 	]

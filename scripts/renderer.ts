@@ -8,13 +8,14 @@ export default class Renderer {
 
 	/**Initialize the renderer */
 	static initiazeRenderer = () => {
-		this.generalImages["background"] = Game.p5.loadImage("./images/background.png");
+		this.generalImages["background"] = this.loadImage("background");
 		this.loadAssets();
 	}
 
 	/**Load all assets */
 	static loadAssets = () => {
 		this.generalImages["logo"] = this.loadImage("logo");
+		this.generalImages["timer"] = this.loadImage("timer");
 	}
 
 	/**Draw image to the screen
