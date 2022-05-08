@@ -24,16 +24,7 @@ export function drawEndingScreen()
 	Renderer.drawText("CLICK or TAP to RETURN to TITLE SCREEN", 20, 400, 275, (Game.success)? new Vector(0, 228, 48) : new Vector(230, 41, 55), "center")
 }
 
-export function updateEndingScreen()
+export function endingTouchEvent()
 {
-	if(Game.p5.millis() - initializeTime < 1000)
-		return;
-
-	if(Game.p5.mouseIsPressed)
-	{
-		if(Game.p5.mouseButton == Game.p5.LEFT)
-		{
-			Game.reset();
-		}
-	}
+	Game.reset();
 }
