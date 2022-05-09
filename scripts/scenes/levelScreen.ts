@@ -1,4 +1,4 @@
-import { Vector } from "p5";
+import Color from "../color";
 import Game from "../main";
 import Renderer from "../renderer";
 import { initializeScene, SceneType } from "../scene";
@@ -32,9 +32,9 @@ export function initializeLevelScreen()
 
 export function drawLevelScreen()
 {
-	Renderer.drawText(`Level ${Game.level} - ${currentLevel.name}`, 20, 1, 1, new Vector(255, 255, 255), "left", "top");
+	Renderer.drawText(`Level ${Game.level} - ${currentLevel.name}`, 20, 1, 1, Color.white, "left", "top");
 	Renderer.drawImage("timer", 0, 20);
-	Renderer.drawText(timeLeft.toFixed(1).toString(), 20, 32, 28, new Vector(255, 255, 255), "left", "top");
+	Renderer.drawText(timeLeft.toFixed(1).toString(), 20, 32, 28, Color.white, "left", "top");
 }
 
 export function updateLevelScreen()

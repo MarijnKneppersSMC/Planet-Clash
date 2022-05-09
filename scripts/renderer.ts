@@ -23,11 +23,11 @@ export default class Renderer {
 	 * @param x The x position of the image on the screen
 	 * @param y The y position of the image on the screen
 	 */
-	static drawImage = (image: string, x: number = 0, y: number = 0) => {
+	static drawImage = (image: string, x: number = 0, y: number = 0, width: number = this.generalImages[image].width, height: number = this.generalImages[image].height) => {
 		
 		if(this.generalImages[image] != undefined)
 		{
-			Game.p5.image(this.generalImages[image], x, y);
+			Game.p5.image(this.generalImages[image], x, y, width, height);
 		}
 		else
 		{
