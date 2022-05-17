@@ -3,6 +3,7 @@ import Renderer from "./renderer";
 import { drawScene, initializeScene, SceneType, touchStarted, updateScene } from "./scene";
 import Audio from "./audio";
 import { InitializeLevelData } from "./scenes/levelScreen";
+import Color from "./color";
 
 const sketch = (p5: P5) =>
 {
@@ -16,6 +17,9 @@ const sketch = (p5: P5) =>
 
 		canvas = p5.createCanvas(800, 450);
 		canvas.parent("app");
+
+		Color.initializeColors();
+
 		Renderer.initiazeRenderer();
 		Renderer.drawImage("background");
 

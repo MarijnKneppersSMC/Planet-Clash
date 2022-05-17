@@ -21,6 +21,7 @@ export function initializeLevelScreen()
 
 	if(Game.level > levelData.levels.length)
 	{
+		Game.success = true;
 		initializeScene(SceneType.ENDING);
 		return;
 	}
@@ -43,6 +44,13 @@ export function updateLevelScreen()
 
 	if(timeLeft <= 0)
 	{
+		if(currentLevel.nextLevel = "end")
+		{
+			Game.success = true;
+			initializeScene(SceneType.ENDING);
+			return;
+		}
+
 		Game.level += 1;
 
 		initializeScene(SceneType.LEVEL);

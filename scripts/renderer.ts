@@ -1,4 +1,5 @@
 import P5 from "p5";
+import Color from "./color";
 import Game from "./main";
 
 export default class Renderer {
@@ -23,7 +24,7 @@ export default class Renderer {
 	 * @param x The x position of the image on the screen
 	 * @param y The y position of the image on the screen
 	 */
-	static drawImage = (image: string, x: number = 0, y: number = 0, width: number = this.generalImages[image].width, height: number = this.generalImages[image].height) => {
+	static drawImage = (image: string, x: number = 0, y: number = 0, width: number = this.generalImages[image].width, height: number = this.generalImages[image].height, color: P5.Color = Color.white) => {
 		
 		if(this.generalImages[image] != undefined)
 		{
@@ -44,10 +45,10 @@ export default class Renderer {
 	 * @param xAllignment The allignment on the x-axis
 	 * @param yAllignment The allignment on the y-axis
 	 */
-	static drawText = (text: string, fontSize: number, xOffset: number, yOffset: number, color: P5.Vector, xAllignment: (P5.LEFT | P5.CENTER | P5.RIGHT) = "left", yAllignment: (P5.TOP | P5.CENTER | P5.BOTTOM) = "top"): void => {
+	static drawText = (text: string, fontSize: number, xOffset: number, yOffset: number, color: P5.Color, xAllignment: (P5.LEFT | P5.CENTER | P5.RIGHT) = "left", yAllignment: (P5.TOP | P5.CENTER | P5.BOTTOM) = "top"): void => {
 		Game.p5.textAlign(xAllignment, yAllignment);
 		Game.p5.textSize(fontSize);
-		Game.p5.fill(color.x, color.y, color.z);
+		Game.p5.fill(color);
 		Game.p5.text(text, xOffset, yOffset);
 	}
 
