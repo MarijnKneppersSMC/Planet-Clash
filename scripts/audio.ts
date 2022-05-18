@@ -1,18 +1,36 @@
+import p5 from "p5";
 import Game from "./main"
 
-export default class Audio
+type AudioClips = 
 {
-	static audioClips: any = {};
+	ambient: p5.MediaElement
+}
 
-	static intializeAudio = () =>
-	{
-		this.audioClips.ambient = Game.p5.createAudio("./audio/ambient.ogg");
+export default class Audio {
 
-		this.audioClips.ambient.loop();
+	static audioClips: AudioClips = {
+		ambient: undefined
+	};
+
+	static preload() {
+		this.audioClips.ambient = this.loadAudio("ambient.ogg", true, true);
 	}
 
-	static playAudio = (clip: string) =>
+	static loadAudio(fileName: string, autoplay: boolean = false, loop: boolean = false)
 	{
-		this.audioClips[clip].play();
+		let audio: p5.MediaElement = Game.p5.createAudio(`./audio/${fileName}`)
+
+		audio.autoplay(autoplay);
+
+		if(loop)
+		{
+			audio.loop();
+		}
+
+		return audio;
+	}
+
+	static playAudio = (clip: p5.MediaElement) => {
+		clip.play();
 	}
 }

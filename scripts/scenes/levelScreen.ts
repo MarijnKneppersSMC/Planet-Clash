@@ -2,57 +2,53 @@ import Color from "../color";
 import Game from "../main";
 import Renderer from "../renderer";
 import { initializeScene, SceneType } from "../scene";
-import {LevelData, Level} from "../types"
+import { LevelData, Level } from "../types"
 
-let levelData: LevelData;
-let currentLevel: Level;
 
-let timeLeft: number;
+export default class LevelScreen extends Screen {
+	static levelData: LevelData;
+	static currentLevel: Level;
 
-export function InitializeLevelData()
-{
+	static timeLeft: number;
 
-    levelData = Game.p5.loadJSON("./data/levels.json") as LevelData;
+	static preload() {
 
-}
+		this.levelData = Game.p5.loadJSON("./data/levels.json") as LevelData;
 
-export function initializeLevelScreen()
-{
-
-	if(Game.level > levelData.levels.length)
-	{
-		Game.success = true;
-		initializeScene(SceneType.ENDING);
-		return;
 	}
 
-	currentLevel = levelData.levels[Game.level - 1];
+	static initialize() {
 
-	timeLeft = currentLevel.duration;
-}
-
-export function drawLevelScreen()
-{
-	Renderer.drawText(`Level ${Game.level} - ${currentLevel.name}`, 20, 1, 1, Color.white, "left", "top");
-	Renderer.drawImage("timer", 0, 20);
-	Renderer.drawText(timeLeft.toFixed(1).toString(), 20, 32, 28, Color.white, "left", "top");
-}
-
-export function updateLevelScreen()
-{
-	timeLeft -= Game.frameTime;
-
-	if(timeLeft <= 0)
-	{
-		if(currentLevel.nextLevel = "end")
-		{
+		if (Game.level > this.levelData.levels.length) {
 			Game.success = true;
 			initializeScene(SceneType.ENDING);
 			return;
 		}
 
-		Game.level += 1;
+		this.currentLevel = this.levelData.levels[Game.level - 1];
 
-		initializeScene(SceneType.LEVEL);
+		this.timeLeft = this.currentLevel.duration;
+	}
+
+	static draw() {
+		Renderer.drawText(`Level ${Game.level} - ${this.currentLevel.name}`, 20, 1, 1, Color.white, "left", "top");
+		Renderer.drawImage(Renderer.images.timer, 0, 20);
+		Renderer.drawText(this.timeLeft.toFixed(1).toString(), 20, 32, 28, Color.white, "left", "top");
+	}
+
+	static update() {
+		this.timeLeft -= Game.frameTime;
+
+		if (this.timeLeft <= 0) {
+			if (this.currentLevel.nextLevel = "end") {
+				Game.success = true;
+				initializeScene(SceneType.ENDING);
+				return;
+			}
+
+			Game.level += 1;
+
+			initializeScene(SceneType.LEVEL);
+		}
 	}
 }

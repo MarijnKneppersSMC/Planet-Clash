@@ -2,21 +2,26 @@ import P5 from "p5";
 import Color from "./color";
 import Game from "./main";
 
+type Images = {
+	background: P5.Image,
+	logo: P5.Image,
+	timer: P5.Image
+}
+
 export default class Renderer {
 
 	
-	static generalImages: any = {};
+	static images: Images = {
+		background: undefined,
+		logo: undefined,
+		timer: undefined,
+	};
 
-	/**Initialize the renderer */
-	static initiazeRenderer = () => {
-		this.generalImages["background"] = this.loadImage("background");
-		this.loadAssets();
-	}
-
-	/**Load all assets */
-	static loadAssets = () => {
-		this.generalImages["logo"] = this.loadImage("logo");
-		this.generalImages["timer"] = this.loadImage("timer");
+	static preload()
+	{
+		this.images.background = this.loadImage("background");
+		this.images.logo = this.loadImage("logo");
+		this.images.timer = this.loadImage("timer");
 	}
 
 	/**Draw image to the screen
@@ -24,16 +29,9 @@ export default class Renderer {
 	 * @param x The x position of the image on the screen
 	 * @param y The y position of the image on the screen
 	 */
-	static drawImage = (image: string, x: number = 0, y: number = 0, width: number = this.generalImages[image].width, height: number = this.generalImages[image].height, color: P5.Color = Color.white) => {
-		
-		if(this.generalImages[image] != undefined)
-		{
-			Game.p5.image(this.generalImages[image], x, y, width, height);
-		}
-		else
-		{
-			throw 'Image not found'
-		}
+	static drawImage = (image: P5.Image, x: number = 0, y: number = 0, width: number = image.width, height: number = image.height, color: P5.Color = Color.white) => {
+
+			Game.p5.image(image, x, y, width, height);
 	}
 
 	/**Draw text to the screen

@@ -1,7 +1,7 @@
-import { drawTitleScreen, titleTouchEvent } from "./scenes/titleScreen";
+import TitleScreen from "./scenes/titleScreen";
 import Game from "./main";
-import { drawLevelScreen, initializeLevelScreen, updateLevelScreen } from "./scenes/levelScreen";
-import { drawEndingScreen, endingTouchEvent, initializeEdingScreen } from "./scenes/endingScreen";
+import LevelScreen from "./scenes/levelScreen";
+import EndingScreen from "./scenes/endingScreen";
 
 export enum SceneType
 {
@@ -17,9 +17,9 @@ export function initializeScene(scene: SceneType)
 	switch(Game.scene)
 	{
 		case SceneType.LEVEL:
-			initializeLevelScreen();
+			LevelScreen.initialize();
 		case SceneType.ENDING:
-			initializeEdingScreen();
+			EndingScreen.initialize();
 	}
 }
 
@@ -28,13 +28,13 @@ export function drawScene()
 	switch(Game.scene)
 	{
 		case SceneType.TITLE:
-			drawTitleScreen();
+			TitleScreen.draw();
 			break;
 		case SceneType.LEVEL:
-			drawLevelScreen();
+			LevelScreen.draw();
 			break;
 		case SceneType.ENDING:
-			drawEndingScreen();
+			EndingScreen.draw();
 			break;
 	}
 }
@@ -44,7 +44,7 @@ export function updateScene()
 	switch(Game.scene)
 	{
 		case SceneType.LEVEL:
-			updateLevelScreen();
+			LevelScreen.update();
 			break;
 	}
 }
@@ -54,10 +54,10 @@ export function touchStarted()
 	switch(Game.scene)
 	{
 		case SceneType.TITLE:
-			titleTouchEvent();
+			TitleScreen.touchEvent();
 			break;
 		case SceneType.ENDING:
-			endingTouchEvent();
+			EndingScreen.touchEvent();
 			break;
 	}
 }

@@ -2,31 +2,36 @@ import P5 from "p5";
 import Renderer from "./renderer";
 import { drawScene, initializeScene, SceneType, touchStarted, updateScene } from "./scene";
 import Audio from "./audio";
-import { InitializeLevelData } from "./scenes/levelScreen";
+import LevelScreen from "./scenes/levelScreen";
 import Color from "./color";
 
 const sketch = (p5: P5) =>
 {
 	let canvas: P5.Renderer;
 
-	p5.setup = () =>
+	p5.preload = () =>
 	{
 		Game.p5 = p5;
+
+		Renderer.preload();
+
+		LevelScreen.preload();
+
+		Audio.preload();
+
+		Color.initializeColors();
+	}
+
+	p5.setup = () =>
+	{
 		Game.startTime = p5.millis();
 		Game.frameTime = p5.millis();
 
 		canvas = p5.createCanvas(800, 450);
 		canvas.parent("app");
 
-		Color.initializeColors();
-
-		Renderer.initiazeRenderer();
-		Renderer.drawImage("background");
-
-		Audio.intializeAudio();
-
-		InitializeLevelData();
-
+		Renderer.drawImage(Renderer.images.background);
+		
 		Game.reset();
 	}
 
@@ -40,7 +45,7 @@ const sketch = (p5: P5) =>
 
 		updateScene();
 
-		Renderer.drawImage("background");
+		Renderer.drawImage(Renderer.images.background);
 
 		drawScene();
 	}
