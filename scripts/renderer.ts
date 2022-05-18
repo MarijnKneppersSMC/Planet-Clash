@@ -5,23 +5,30 @@ import Game from "./main";
 type Images = {
 	background: P5.Image,
 	logo: P5.Image,
-	timer: P5.Image
+	timer: P5.Image,
+	planets: P5.Image[]
 }
+
+const planets: string[] = ["B", "Blue planet1", "C", "D", "E", "F", "G", "H", "Jupiter", "Mars", "Mercury", "Neptune", "orange planet1", "Saturn", "Uranus", "Venus"];
 
 export default class Renderer {
 
-	
 	static images: Images = {
 		background: undefined,
 		logo: undefined,
 		timer: undefined,
+		planets: []
 	};
 
-	static preload()
-	{
+	static preload() {
 		this.images.background = this.loadImage("background");
 		this.images.logo = this.loadImage("logo");
 		this.images.timer = this.loadImage("timer");
+
+		for (let i: number = 0; i < planets.length; i++) {
+			this.images.planets.push(this.loadImage(planets[i]));
+		}
+
 	}
 
 	/**Draw image to the screen
@@ -31,7 +38,9 @@ export default class Renderer {
 	 */
 	static drawImage = (image: P5.Image, x: number = 0, y: number = 0, width: number = image.width, height: number = image.height, color: P5.Color = Color.white) => {
 
-			Game.p5.image(image, x, y, width, height);
+		Game.p5.fill(color);
+		Game.p5.imageMode("center")
+		Game.p5.image(image, x, y, width, height);
 	}
 
 	/**Draw text to the screen

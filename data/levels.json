@@ -3,7 +3,25 @@
 		{
 			"name": "random movement",
 			"duration": 15,
-			"nextLevel": 2
+			"nextLevel": 2,
+			"planets": [
+				{
+					"position": {"x": 0, "y": 0},
+					"radius": 32
+				},
+				{
+					"position": {"x": 50, "y": 0},
+					"radius": 32
+				},
+				{
+					"position": {"x": 0, "y": 50},
+					"radius": 32
+				},
+				{
+					"position": {"x": 50, "y": 50},
+					"radius": 32
+				}
+			]
 		}
 	]
 }
