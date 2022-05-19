@@ -4,6 +4,7 @@ import { drawScene, initializeScene, SceneType, touchStarted, updateScene } from
 import Audio from "./audio";
 import LevelScreen from "./scenes/levelScreen";
 import Color from "./color";
+import Constants from "./constants";
 
 const sketch = (p5: P5) =>
 {
@@ -27,7 +28,7 @@ const sketch = (p5: P5) =>
 		Game.startTime = p5.millis();
 		Game.frameTime = p5.millis();
 
-		canvas = p5.createCanvas(800, 450);
+		canvas = p5.createCanvas(Constants.screenDimensions.x, Constants.screenDimensions.y);
 		canvas.parent("app");
 
 		Renderer.drawImage(Renderer.images.background);

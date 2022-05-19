@@ -42,14 +42,14 @@ export default class LevelScreen extends Screen {
 	}
 
 	static draw() {
-		Renderer.drawText(`Level ${Game.level} - ${this.currentLevel.name}`, 20, 1, 1, Color.white, "left", "top");
-		Renderer.drawImage(Renderer.images.timer, 0, 20);
-		Renderer.drawText(this.timeLeft.toFixed(1).toString(), 20, 32, 28, Color.white, "left", "top");
-
 		for(let i: number = 0; i < this.planets.length; i++)
 		{
 			this.planets[i].draw();
 		}
+
+		Renderer.drawText(`Level ${Game.level} - ${this.currentLevel.name}`, 20, 1, 1, Color.white, "left", "top");
+		Renderer.drawImage(Renderer.images.timer, 0, 20);
+		Renderer.drawText(this.timeLeft.toFixed(1).toString(), 20, 32, 28, Color.white, "left", "top");
 	}
 
 	static update() {

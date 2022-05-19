@@ -36,10 +36,10 @@ export default class Renderer {
 	 * @param x The x position of the image on the screen
 	 * @param y The y position of the image on the screen
 	 */
-	static drawImage = (image: P5.Image, x: number = 0, y: number = 0, width: number = image.width, height: number = image.height, color: P5.Color = Color.white) => {
+	static drawImage = (image: P5.Image, x: number = 0, y: number = 0, width: number = image.width, height: number = image.height, color: P5.Color = Color.white, imageMode: P5.IMAGE_MODE = "corner") => {
 
 		Game.p5.fill(color);
-		Game.p5.imageMode("center")
+		Game.p5.imageMode(imageMode)
 		Game.p5.image(image, x, y, width, height);
 	}
 

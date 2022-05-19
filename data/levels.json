@@ -7,19 +7,19 @@
 			"planets": [
 				{
 					"position": {"x": 0, "y": 0},
-					"radius": 32
+					"radius": 21
 				},
 				{
-					"position": {"x": 50, "y": 0},
-					"radius": 32
+					"position": {"x": 800, "y": 0},
+					"radius": 21
 				},
 				{
-					"position": {"x": 0, "y": 50},
-					"radius": 32
+					"position": {"x": 0, "y": 450},
+					"radius": 21
 				},
 				{
-					"position": {"x": 50, "y": 50},
-					"radius": 32
+					"position": {"x": 800, "y": 450},
+					"radius": 21
 				}
 			]
 		}
