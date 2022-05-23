@@ -7,7 +7,7 @@ import { initializeScene, SceneType } from "../scene";
 import { LevelData, Level, PlanetData } from "../types"
 
 
-export default class LevelScreen extends Screen {
+export default class LevelScreen {
 	static levelData: LevelData;
 	static currentLevel: Level;
 
