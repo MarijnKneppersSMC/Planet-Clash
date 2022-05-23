@@ -49,4 +49,9 @@ export default class CustomMath
 	{
 		return Math.random() * (max - min) + min;
 	}
+
+	static checkCircleCollision = (pos1: Vector, radius1: number, pos2: Vector, radius2: number): boolean =>
+	{
+		return Math.abs((pos1.x - pos2.x) * (pos1.x - pos2.x) + (pos1.y - pos2.y) * (pos1.y - pos2.y)) < (radius1 + radius2) * (radius1 + radius2)
+	}
 }

@@ -1,5 +1,6 @@
 import Color from "../color";
 import Game from "../main";
+import CustomMath from "../math";
 import Planet from "../planet";
 import Renderer from "../renderer";
 import { initializeScene, SceneType } from "../scene";
@@ -70,6 +71,23 @@ export default class LevelScreen extends Screen {
 		for(let i: number = 0; i < this.planets.length; i++)
 		{
 			this.planets[i].move();
+		}
+
+		for(let i: number = 0; i < this.planets.length;i++)
+		{
+			for(let j: number = 0; j < this.planets.length;j++)
+			{
+				if(i == j)
+				{
+					continue;
+				}
+				
+				if(CustomMath.checkCircleCollision(this.planets[i].position, this.planets[i].radius, this.planets[j].position, this.planets[j].radius))
+				{
+					Game.success = false;
+					initializeScene(SceneType.ENDING);
+				}
+			}
 		}
 	}
 }
