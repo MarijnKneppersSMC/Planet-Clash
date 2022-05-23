@@ -33,6 +33,7 @@ export default class LevelScreen {
 
 		this.timeLeft = this.currentLevel.duration;
 
+		//array doesn't clear for some reason
 		this.planets = [];
 
 		for(let i: number = 0; i < this.currentLevel.planets.length; i++)
