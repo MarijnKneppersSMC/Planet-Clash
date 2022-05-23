@@ -1,6 +1,7 @@
 import P5, { Vector } from "p5";
 import Color from "./color";
 import Constants from "./constants";
+import Game from "./main";
 import CustomMath from "./math";
 import Renderer from "./renderer";
 
@@ -42,7 +43,7 @@ export default class Planet{
 	{
 		if(this.movementType == MovementType.RANDOM)
 		{
-			this.position = CustomMath.moveTowardsVector(this.position, this.target, this.speed);
+			this.position = CustomMath.moveTowardsVector(this.position, this.target, this.speed * Game.frameTime);
 
 			if(this.position.x == this.target.x && this.position.y == this.position.y)
 				this.generateRandomPosition();
@@ -54,7 +55,7 @@ export default class Planet{
 				throw "Target not specified";
 			}
 
-			this.position = CustomMath.moveTowardsVector(this.position, target, this.speed);
+			this.position = CustomMath.moveTowardsVector(this.position, target, this.speed * Game.frameTime);
 		}
 	}
 

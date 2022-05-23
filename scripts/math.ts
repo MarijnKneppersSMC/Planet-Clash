@@ -11,8 +11,7 @@ export default class CustomMath
 		let sqDist: number = xVector * xVector + yVector * yVector;
 	
 		if (sqDist == 0 || (maxDistance >= 0 && sqDist <= maxDistance * maxDistance)) {
-			position.x = target.x;
-			position.y = target.y;
+			return target;
 		}
 	
 		let dist = Math.sqrt(sqDist);
