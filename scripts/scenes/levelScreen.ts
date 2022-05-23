@@ -37,7 +37,7 @@ export default class LevelScreen extends Screen {
 		for(let i: number = 0; i < this.currentLevel.planets.length; i++)
 		{
 			let planet: PlanetData = this.currentLevel.planets[i];
-			this.planets.push(new Planet(planet.position, planet.radius));
+			this.planets.push(new Planet(planet.position, planet.radius, planet.speed, this.currentLevel.movementType));
 		}
 	}
 
@@ -65,6 +65,11 @@ export default class LevelScreen extends Screen {
 			Game.level += 1;
 
 			initializeScene(SceneType.LEVEL);
+		}
+
+		for(let i: number = 0; i < this.planets.length; i++)
+		{
+			this.planets[i].move();
 		}
 	}
 }

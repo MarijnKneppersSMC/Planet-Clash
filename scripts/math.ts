@@ -1,10 +1,10 @@
-import p5, { Vector } from "p5";
+import { Vector } from "p5";
 import Constants from "./constants";
 import Game from "./main";
 
 export default class CustomMath
 {
-	static moveTowardsVector = (position: Vector, target: Vector, maxDistance: number): void => {
+	static moveTowardsVector = (position: Vector, target: Vector, maxDistance: number): Vector => {
 		let xVector: number = target.x - position.x;
 		let yVector: number = target.y - position.y;
 	
@@ -19,6 +19,7 @@ export default class CustomMath
 	
 		position.x = position.x + xVector / dist * maxDistance;
 		position.y = position.y + yVector / dist * maxDistance;
+		return position;
 	}
 
 	static clampToScreen = (position: Vector, radius: number): Vector =>
@@ -43,5 +44,10 @@ export default class CustomMath
 		}
 
 		return position;
+	}
+
+	static randomRange(min: number, max: number)
+	{
+		return Math.random() * (max - min) + min;
 	}
 }

@@ -3,23 +3,28 @@
 		{
 			"name": "random movement",
 			"duration": 15,
-			"nextLevel": 2,
+			"nextLevel": "end",
+			"movementType": "random",
 			"planets": [
 				{
 					"position": {"x": 0, "y": 0},
-					"radius": 21
+					"radius": 21,
+					"speed": 1
 				},
 				{
 					"position": {"x": 800, "y": 0},
-					"radius": 21
+					"radius": 21,
+					"speed": 1
 				},
 				{
 					"position": {"x": 0, "y": 450},
-					"radius": 21
+					"radius": 21,
+					"speed": 1
 				},
 				{
 					"position": {"x": 800, "y": 450},
-					"radius": 21
+					"radius": 21,
+					"speed": 1
 				}
 			]
 		}
