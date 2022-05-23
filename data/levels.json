@@ -2,7 +2,7 @@
 	"levels": [
 		{
 			"name": "random movement",
-			"duration": 15000,
+			"duration": 15,
 			"nextLevel": "end",
 			"movementType": "random",
 			"planets": [
