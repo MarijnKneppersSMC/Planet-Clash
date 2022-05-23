@@ -1,10 +1,10 @@
 import { Vector } from "p5";
 import Constants from "./constants";
-import Game from "./main";
 
 export default class CustomMath
 {
 	static moveTowardsVector = (position: Vector, target: Vector, maxDistance: number): Vector => {
+
 		let xVector: number = target.x - position.x;
 		let yVector: number = target.y - position.y;
 	
@@ -15,10 +15,12 @@ export default class CustomMath
 		}
 	
 		let dist = Math.sqrt(sqDist);
+
+		let result: Vector = new Vector();
 	
-		position.x = position.x + xVector / dist * maxDistance;
-		position.y = position.y + yVector / dist * maxDistance;
-		return position;
+		result.x = position.x + xVector / dist * maxDistance;
+		result.y = position.y + yVector / dist * maxDistance;
+		return result;
 	}
 
 	static clampToScreen = (position: Vector, radius: number): Vector =>

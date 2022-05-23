@@ -43,10 +43,11 @@ export default class Planet{
 	{
 		if(this.movementType == MovementType.RANDOM)
 		{
-			this.position = CustomMath.moveTowardsVector(this.position, this.target, this.speed * Game.frameTime);
-
 			if(this.position.x == this.target.x && this.position.y == this.position.y)
 				this.generateRandomPosition();
+
+			this.position = CustomMath.moveTowardsVector(this.position, this.target, this.speed * Game.frameTime);
+
 		}
 		else
 		{
