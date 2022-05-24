@@ -46,8 +46,7 @@ export default class Planet{
 	{
 		if(this.dragging)
 		{
-			this.position.x = Game.p5.mouseX;
-			this.position.y = Game.p5.mouseY;
+			this.position = CustomMath.clampToScreen(new Vector(Game.p5.mouseX, Game.p5.mouseY), this.radius);
 		}
 		if(this.movementType == MovementType.RANDOM)
 		{
