@@ -74,8 +74,13 @@ const sketch = (p5: P5) =>
 
 		if(Game.fullscreen)
 		{
-			canvas.style.width = window.innerWidth.toString();
-			canvas.style.height = window.innerHeight.toString();
+			let xScale: number = window.innerWidth / Constants.screenDimensions.x;
+			let yScale: number = window.innerHeight / Constants.screenDimensions.y;
+
+			let smallestScale: number = (xScale < yScale)? xScale : yScale;
+
+			canvas.style.width = (Constants.screenDimensions.x * smallestScale).toString();
+			canvas.style.height = (Constants.screenDimensions.y * smallestScale).toString();
 			return;
 		}
 		else
