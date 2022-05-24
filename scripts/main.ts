@@ -1,4 +1,4 @@
-import P5 from "p5";
+import P5, { Vector } from "p5";
 import Renderer from "./renderer";
 import Audio from "./audio";
 import LevelScreen from "./scenes/levelScreen";
@@ -78,6 +78,11 @@ export default class Game
 	static success: boolean;
 	static dragging: boolean;
 	static draggedPlanetIndex: number;
+
+	static get mousePosition()
+	{
+		return new Vector(this.p5.mouseX, this.p5.mouseY);
+	}
 
 	static reset(): void {
 		SceneHandler.initializeScene(SceneType.TITLE);

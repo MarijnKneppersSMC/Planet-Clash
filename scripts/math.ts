@@ -61,4 +61,17 @@ export default class CustomMath
 	{
 		return this.checkCircleCollision(pos1, radius, pos2, 0);
 	}
+
+	static checkSquarePointCollision = (pos1: Vector, width: number, height: number, pos2: Vector): boolean =>
+	{
+		if(pos2.x >= pos1.x &&
+			pos2.x <= pos1.x + width &&
+			pos2.y >= pos1.y &&
+			pos2.y <= pos2.y + height)
+		{
+			return true
+		}
+
+		return false;
+	}
 }

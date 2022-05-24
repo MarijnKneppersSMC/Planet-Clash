@@ -6,7 +6,8 @@ type Images = {
 	background: P5.Image,
 	logo: P5.Image,
 	timer: P5.Image,
-	planets: P5.Image[]
+	planets: P5.Image[],
+	fullscreen: P5.Image
 }
 
 const planets: string[] = ["B", "Blue planet1", "C", "D", "E", "F", "G", "H", "Jupiter", "Mars", "Mercury", "Neptune", "orange planet1", "Saturn", "Uranus", "Venus"];
@@ -17,7 +18,8 @@ export default class Renderer {
 		background: undefined,
 		logo: undefined,
 		timer: undefined,
-		planets: []
+		planets: [],
+		fullscreen: undefined
 	};
 
 	static preload() {
@@ -28,6 +30,8 @@ export default class Renderer {
 		for (let i: number = 0; i < planets.length; i++) {
 			this.images.planets.push(this.loadImage(planets[i]));
 		}
+
+		this.images.fullscreen = this.loadImage("Fullscreen");
 
 	}
 
