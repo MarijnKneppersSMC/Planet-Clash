@@ -53,7 +53,10 @@ const sketch = (p5: P5) =>
 
 	p5.touchStarted = () =>
 	{
-		if(p5.mouseX > 0 && p5.mouseX < Constants.screenDimensions.x && p5.mouseY > 0 && p5.mouseY < Constants.screenDimensions.y)
+		if(!(p5.mouseX > 0 && p5.mouseX < Constants.screenDimensions.x && p5.mouseY > 0 && p5.mouseY < Constants.screenDimensions.y))
+		{
+			return;
+		}
 
 		SceneHandler.touchStarted();
 	}
@@ -69,7 +72,7 @@ const sketch = (p5: P5) =>
 
 		let canvas: HTMLElement = document.getElementById("defaultCanvas0");
 
-		if(p5.fullscreen())
+		if(Game.fullscreen)
 		{
 			canvas.style.width = window.innerWidth.toString();
 			canvas.style.height = window.innerHeight.toString();
@@ -98,6 +101,7 @@ export default class Game
 	static success: boolean;
 	static dragging: boolean;
 	static draggedPlanetIndex: number;
+	static fullscreen: boolean;
 
 	static get mousePosition()
 	{

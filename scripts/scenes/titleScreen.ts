@@ -25,6 +25,8 @@ export default class TitleScreen {
 		if(CustomMath.checkSquarePointCollision(this.fullscreenPosition, 32, 32, Game.mousePosition))
 		{
 			Game.p5.fullscreen(!Game.p5.fullscreen());
+			Game.fullscreen = !Game.fullscreen;
+			Game.p5.windowResized();
 			return;
 		}
 
