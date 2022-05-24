@@ -9,7 +9,6 @@ After this, open the url loged to the console.
 Note that this project supports live reload.  
 
 ## TODO
-- add planet dragging
 - add more levels
 - final pass over all my code
 
