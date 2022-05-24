@@ -9,6 +9,7 @@ After this, open the url loged to the console.
 Note that this project supports live reload.  
 
 ## TODO
+- add a fullscreen button
 - add more levels
 - final pass over all my code
 
