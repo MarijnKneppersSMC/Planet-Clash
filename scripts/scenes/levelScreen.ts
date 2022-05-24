@@ -103,6 +103,7 @@ export default class LevelScreen {
 			if(CustomMath.checkCirclePointCollision(planet.position, planet.radius, new Vector(Game.p5.mouseX, Game.p5.mouseY)))
 			{
 				this.planets[i].dragging = true;
+				Game.draggedPlanetIndex = i;
 				break;
 			}
 		}
@@ -114,6 +115,7 @@ export default class LevelScreen {
 		{
 			this.planets[Game.draggedPlanetIndex].dragging = false;
 			Game.draggedPlanetIndex = -1;
+			Game.dragging = false;
 		}
 	}
 }

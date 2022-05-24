@@ -46,7 +46,8 @@ export default class Planet{
 	{
 		if(this.dragging)
 		{
-			console.log("DRAG")
+			this.position.x = Game.p5.mouseX;
+			this.position.y = Game.p5.mouseY;
 		}
 		if(this.movementType == MovementType.RANDOM)
 		{

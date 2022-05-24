@@ -59,6 +59,6 @@ export default class CustomMath
 
 	static checkCirclePointCollision = (pos1: Vector, radius: number, pos2: Vector): boolean =>
 	{
-		return Math.abs((pos1.x - pos2.x) * (pos1.x - pos2.x) + (pos1.y - pos2.y) * (pos1.y - pos2.y)) <= radius;
+		return this.checkCircleCollision(pos1, radius, pos2, 0);
 	}
 }
