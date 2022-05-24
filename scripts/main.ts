@@ -53,6 +53,8 @@ const sketch = (p5: P5) =>
 
 	p5.touchStarted = () =>
 	{
+		if(p5.mouseX > 0 && p5.mouseX < Constants.screenDimensions.x && p5.mouseY > 0 && p5.mouseY < Constants.screenDimensions.y)
+
 		SceneHandler.touchStarted();
 	}
 
