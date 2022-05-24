@@ -62,6 +62,26 @@ const sketch = (p5: P5) =>
 	{
 		SceneHandler.touchEnded();
 	}
+
+	p5.windowResized = () =>
+	{
+		//sadly, the p5.resizeCanvas function did not work, so I created my own version
+
+		let canvas: HTMLElement = document.getElementById("defaultCanvas0");
+
+		if(p5.fullscreen())
+		{
+			canvas.style.width = window.innerWidth.toString();
+			canvas.style.height = window.innerHeight.toString();
+			return;
+		}
+		else
+		{
+			canvas.style.width = Constants.screenDimensions.x.toString();
+			canvas.style.height = Constants.screenDimensions.y.toString();
+			return;
+		}
+	}
 }
 
 new P5(sketch);
