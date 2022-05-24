@@ -20,7 +20,7 @@ export default class endingScreen {
 		Renderer.drawText("CLICK or TAP to RETURN to TITLE SCREEN", 20, 400, 275, (Game.success) ? Color.green : Color.red, "center")
 	}
 
-	static touchEvent() {
+	static touchStarted() {
 		Game.reset();
 	}
 }

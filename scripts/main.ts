@@ -1,10 +1,10 @@
 import P5 from "p5";
 import Renderer from "./renderer";
-import { drawScene, initializeScene, SceneType, touchStarted, updateScene } from "./scene";
 import Audio from "./audio";
 import LevelScreen from "./scenes/levelScreen";
 import Color from "./color";
 import Constants from "./constants";
+import SceneHandler, { SceneType } from "./scene";
 
 const sketch = (p5: P5) =>
 {
@@ -44,16 +44,21 @@ const sketch = (p5: P5) =>
 
 		Game.lastFrame = p5.millis();
 
-		updateScene();
+		SceneHandler.updateScene();
 
 		Renderer.drawImage(Renderer.images.background);
 
-		drawScene();
+		SceneHandler.drawScene();
 	}
 
 	p5.touchStarted = () =>
 	{
-		touchStarted();
+		SceneHandler.touchStarted();
+	}
+
+	p5.touchEnded = () =>
+	{
+		SceneHandler.touchEnded();
 	}
 }
 
@@ -69,12 +74,16 @@ export default class Game
 	static lastFrame: number;
 	static frameTime: number;
 	static success: boolean;
+	static dragging: boolean;
+	static draggedPlanetIndex: number;
 
 	static reset(): void {
-		initializeScene(SceneType.TITLE);
+		SceneHandler.initializeScene(SceneType.TITLE);
 		this.level = 1;
 		this.success = false;
 		this.startTime = this.p5.millis();
 		this.passedTime = 0;
+		this.dragging = false;
+		this.draggedPlanetIndex = -1;
 	}
 }

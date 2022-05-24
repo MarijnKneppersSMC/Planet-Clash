@@ -18,6 +18,8 @@ export default class Planet{
 	movementType: MovementType;
 
 	target: P5.Vector
+
+	dragging: boolean;
 	
 	
 	constructor(position: P5.Vector, radius: number, speed: number, movementType: MovementType)
@@ -27,6 +29,7 @@ export default class Planet{
 		this.speed = speed;
 		this.sprite = Renderer.images.planets[Math.round(CustomMath.randomRange(0, Renderer.images.planets.length - 1))];
 		this.movementType = movementType;
+		this.dragging = false;
 
 		if(movementType == MovementType.RANDOM)
 		{
@@ -41,6 +44,10 @@ export default class Planet{
 
 	move = (target?: P5.Vector) =>
 	{
+		if(this.dragging)
+		{
+			console.log("DRAG")
+		}
 		if(this.movementType == MovementType.RANDOM)
 		{
 			if(this.position.x == this.target.x && this.position.y == this.position.y)

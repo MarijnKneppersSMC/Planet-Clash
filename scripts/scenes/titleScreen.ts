@@ -1,6 +1,6 @@
 import Renderer from "../renderer";
 import Game from "../main";
-import { initializeScene, SceneType } from "../scene";
+import SceneHandler, { SceneType } from "../scene";
 import Color from "../color";
 import Constants from "../constants";
 
@@ -14,7 +14,7 @@ export default class TitleScreen {
 		Renderer.drawText("Art by Twan Kneppers", 20, Constants.screenDimensions.x / 2, 400, Color.grey, "center", "top");
 	}
 
-	static touchEvent() {
-		initializeScene(SceneType.LEVEL);
+	static touchStarted() {
+		SceneHandler.initializeScene(SceneType.LEVEL);
 	}
 }
