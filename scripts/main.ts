@@ -72,7 +72,7 @@ const sketch = (p5: P5) =>
 
 		let canvas: HTMLElement = document.getElementById("defaultCanvas0");
 
-		if(Game.fullscreen)
+		if(Game.p5.fullscreen())
 		{
 			let xScale: number = window.innerWidth / Constants.screenDimensions.x;
 			let yScale: number = window.innerHeight / Constants.screenDimensions.y;
@@ -106,7 +106,6 @@ export default class Game
 	static success: boolean;
 	static dragging: boolean;
 	static draggedPlanetIndex: number;
-	static fullscreen: boolean;
 
 	static get mousePosition()
 	{

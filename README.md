@@ -8,8 +8,14 @@ To test this project, run ``yarn start`` in the root directory of the project.
 After this, open the url loged to the console.  
 Note that this project supports live reload.  
 
+## Can I play on mobile?
+![cool meme](https://i.kym-cdn.com/entries/icons/original/000/028/596/dsmGaKWMeHXe9QuJtq_ys30PNfTGnMsRuHuo_MUzGCg.jpg)
+
+You could technically play on mobile, but p5.js has several problems. Some of those being:
+- The fullscreen button not working (p5.fullscreen() doesn't work)
+- p5.js doesn't cancel events so moving your finger moves the page around
+
 ## TODO
-- add a fullscreen button
 - add more levels
 - final pass over all my code
 
