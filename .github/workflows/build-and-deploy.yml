@@ -20,31 +20,35 @@ jobs:
       - name: Build
         run: |
           yarn build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dest
+          path: ./dest/
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
 
-        
-      - name: Copy
-        run: |
-          cp ./dest/ ../ -r
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: dest
       
       - name: Initialise
         run: |
-          cd ../dest/
           git init
           git config user.name ${{github.actor}}
           git config user.email ${{github.actor}}@users.noreply.github.com
           
       - name: Commit
         run: |
-          cd ../dest/
           git add .
           git commit -m "${{github.event.head_commit.message}}"
           
       - name: Publish
         run: |
-          cd ../dest/
           git push -f https://${{ secrets.DEPLOY_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
 
