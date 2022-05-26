@@ -10,15 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Install Dependencies
         run: |
-          yarn install
-  
-      - name: Build Project
+          yarn
+
+      - name: Build
         run: |
           yarn build
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+
         
       - name: Copy
         run: |
