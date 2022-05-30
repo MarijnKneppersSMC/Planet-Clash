@@ -7,54 +7,237 @@
 			"movementType": "random",
 			"planets": [
 				{
-					"position": {"x": 0, "y": 0},
+					"position": {
+						"x": 0,
+						"y": 0
+					},
 					"radius": 30,
 					"speed": 7
 				},
 				{
-					"position": {"x": 800, "y": 0},
+					"position": {
+						"x": 800,
+						"y": 0
+					},
 					"radius": 30,
 					"speed": 7
 				},
 				{
-					"position": {"x": 800, "y": 450},
+					"position": {
+						"x": 800,
+						"y": 450
+					},
 					"radius": 30,
 					"speed": 7
 				},
 				{
-					"position": {"x": 0, "y": 450},
+					"position": {
+						"x": 0,
+						"y": 450
+					},
 					"radius": 30,
 					"speed": 7
 				}
 			]
 		},
 		{
-			"name": "f",
-			"duration": 15,
+			"name": "linked planets",
+			"duration": 10,
 			"nextLevel": 3,
 			"movementType": "linked",
 			"planets": [
 				{
-					"position": {"x": 0, "y": 0},
+					"position": {
+						"x": 0,
+						"y": 0
+					},
 					"radius": 30,
 					"speed": 7
 				},
 				{
-					"position": {"x": 800, "y": 0},
+					"position": {
+						"x": 800,
+						"y": 0
+					},
 					"radius": 30,
 					"speed": 7
 				},
 				{
-					"position": {"x": 800, "y": 450},
+					"position": {
+						"x": 800,
+						"y": 450
+					},
 					"radius": 30,
 					"speed": 7
 				},
 				{
-					"position": {"x": 0, "y": 450},
+					"position": {
+						"x": 0,
+						"y": 450
+					},
 					"radius": 30,
 					"speed": 7
 				}
-				
+			]
+		},
+		{
+			"name": "the bigger, the beter",
+			"duration": 15,
+			"nextLevel": 4,
+			"movementType": "random",
+			"planets": [
+				{
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"radius": 50,
+					"speed": 4
+				},
+				{
+					"position": {
+						"x": 800,
+						"y": 0
+					},
+					"radius": 50,
+					"speed": 4
+				},
+				{
+					"position": {
+						"x": 800,
+						"y": 450
+					},
+					"radius": 50,
+					"speed": 4
+				},
+				{
+					"position": {
+						"x": 0,
+						"y": 450
+					},
+					"radius": 50,
+					"speed": 4
+				}
+			]
+		},
+		{
+			"name": "speedy planets",
+			"duration": 15,
+			"nextLevel": 4,
+			"movementType": "random",
+			"planets": [
+				{
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"radius": 20,
+					"speed": 10
+				},
+				{
+					"position": {
+						"x": 800,
+						"y": 0
+					},
+					"radius": 20,
+					"speed": 10
+				},
+				{
+					"position": {
+						"x": 800,
+						"y": 450
+					},
+					"radius": 20,
+					"speed": 10
+				},
+				{
+					"position": {
+						"x": 0,
+						"y": 450
+					},
+					"radius": 20,
+					"speed": 10
+				}
+			]
+		},
+		{
+			"name": "perfectly balanced, as all things should be",
+			"duration": 15,
+			"nextLevel": 4,
+			"movementType": "random",
+			"planets": [
+				{
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"radius": 20,
+					"speed": 13
+				},
+				{
+					"position": {
+						"x": 800,
+						"y": 0
+					},
+					"radius": 20,
+					"speed": 13
+				},
+				{
+					"position": {
+						"x": 800,
+						"y": 450
+					},
+					"radius": 50,
+					"speed": 4
+				},
+				{
+					"position": {
+						"x": 0,
+						"y": 450
+					},
+					"radius": 50,
+					"speed": 4
+				}
+			]
+		},
+		{
+			"name": "linked contrast",
+			"duration": 15,
+			"nextLevel": 4,
+			"movementType": "linked",
+			"planets": [
+				{
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"radius": 50,
+					"speed": 4
+				},
+				{
+					"position": {
+						"x": 800,
+						"y": 0
+					},
+					"radius": 50,
+					"speed": 4
+				},
+				{
+					"position": {
+						"x": 800,
+						"y": 450
+					},
+					"radius": 20,
+					"speed": 10
+				},
+				{
+					"position": {
+						"x": 0,
+						"y": 450
+					},
+					"radius": 20,
+					"speed": 10
+				}
 			]
 		}
 	]
