@@ -28,12 +28,15 @@ const sketch = (p5: P5) =>
 		Game.startTime = p5.millis();
 		Game.frameTime = p5.millis();
 
-		canvas = p5.createCanvas(Constants.screenDimensions.x, Constants.screenDimensions.y);
+		canvas = Game.p5.createCanvas(Constants.screenDimensions.x, Constants.screenDimensions.y);
 		canvas.parent("app");
 
 		Renderer.drawImage(Renderer.images.background);
+
+		Game.p5.noSmooth()
 		
 		Game.reset();
+
 	}
 
 	p5.draw = () =>
