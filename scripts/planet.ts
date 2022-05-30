@@ -53,7 +53,7 @@ export default class Planet{
 			if(this.position.x == this.target.x && this.position.y == this.position.y)
 				this.generateRandomPosition();
 
-			this.position = CustomMath.moveTowardsVector(this.position, this.target, this.speed * Game.frameTime);
+			this.position = CustomMath.moveTowardsVector(this.position, this.target, this.speed * Game.frameTime * 10);
 
 		}
 		else
@@ -63,7 +63,7 @@ export default class Planet{
 				throw "Target not specified";
 			}
 
-			this.position = CustomMath.moveTowardsVector(this.position, target, this.speed * Game.frameTime);
+			this.position = CustomMath.moveTowardsVector(this.position, target, this.speed * Game.frameTime * 10);
 		}
 	}
 
