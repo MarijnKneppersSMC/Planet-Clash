@@ -27,6 +27,34 @@
 					"speed": 7
 				}
 			]
+		},
+		{
+			"name": "f",
+			"duration": 15,
+			"nextLevel": 3,
+			"movementType": "linked",
+			"planets": [
+				{
+					"position": {"x": 0, "y": 0},
+					"radius": 30,
+					"speed": 7
+				},
+				{
+					"position": {"x": 800, "y": 0},
+					"radius": 30,
+					"speed": 7
+				},
+				{
+					"position": {"x": 0, "y": 450},
+					"radius": 30,
+					"speed": 7
+				},
+				{
+					"position": {"x": 800, "y": 450},
+					"radius": 30,
+					"speed": 7
+				}
+			]
 		}
 	]
 }

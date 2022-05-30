@@ -58,7 +58,7 @@ export default class LevelScreen {
 		this.timeLeft -= Game.frameTime;
 
 		if (this.timeLeft <= 0) {
-			if (this.currentLevel.nextLevel = "end") {
+			if (this.currentLevel.nextLevel == "end") {
 				Game.success = true;
 				SceneHandler.initializeScene(SceneType.ENDING);
 				return;
