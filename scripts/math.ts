@@ -78,9 +78,15 @@ export default class CustomMath
 	static clampWithOverflow = (index: number, min: number, max: number): number =>
 	{
 		let result: number = index;
+
+		if(result < min)
+		{
+			result = min;
+		}
+		
 		while(result > max)
 		{
-			result -= max;
+			result -= max + 1;
 		}
 
 		return result;
