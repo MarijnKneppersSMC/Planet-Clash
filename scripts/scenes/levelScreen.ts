@@ -1,7 +1,7 @@
 import Color from "../color";
 import Game from "../main";
 import CustomMath from "../math";
-import Planet from "../planet";
+import Planet, { MovementType } from "../planet";
 import Renderer from "../renderer";
 import SceneHandler, { SceneType } from "../scene";
 import { LevelData, Level, PlanetData } from "../types"
@@ -71,7 +71,14 @@ export default class LevelScreen {
 
 		for(let i: number = 0; i < this.planets.length; i++)
 		{
-			this.planets[i].move();
+			if(this.currentLevel.movementType == MovementType.RANDOM)
+			{
+				this.planets[i].move();
+			}
+			else
+			{
+				this.planets[i].move(this.planets[CustomMath.clampWithOverflow(i + 2, 0, 3)].position);
+			}
 		}
 
 		for(let i: number = 0; i < this.planets.length;i++)

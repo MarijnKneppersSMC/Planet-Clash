@@ -17,12 +17,12 @@
 					"speed": 7
 				},
 				{
-					"position": {"x": 0, "y": 450},
+					"position": {"x": 800, "y": 450},
 					"radius": 30,
 					"speed": 7
 				},
 				{
-					"position": {"x": 800, "y": 450},
+					"position": {"x": 0, "y": 450},
 					"radius": 30,
 					"speed": 7
 				}
@@ -45,15 +45,16 @@
 					"speed": 7
 				},
 				{
-					"position": {"x": 0, "y": 450},
+					"position": {"x": 800, "y": 450},
 					"radius": 30,
 					"speed": 7
 				},
 				{
-					"position": {"x": 800, "y": 450},
+					"position": {"x": 0, "y": 450},
 					"radius": 30,
 					"speed": 7
 				}
+				
 			]
 		}
 	]

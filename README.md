@@ -18,6 +18,7 @@ You could technically play on mobile, but p5.js has several problems. Some of th
 ## TODO
 - add more levels
 - switch image filtering mode so images don't look blurry
+- take another look at linked planets
 - final pass over all my code
 
 ## Is this really object oriented?
