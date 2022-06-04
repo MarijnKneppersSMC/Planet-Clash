@@ -5,12 +5,11 @@ import Game from "./main";
 import CustomMath from "./math";
 import Renderer from "./renderer";
 
-export default class Planet{
+export default class Planet {
 
 	position: P5.Vector;
 	radius: number;
-	get diameter()
-	{
+	get diameter() {
 		return this.radius * 2;
 	}
 	sprite: P5.Image;
@@ -20,10 +19,9 @@ export default class Planet{
 	target: P5.Vector
 
 	dragging: boolean;
-	
-	
-	constructor(position: P5.Vector, radius: number, speed: number, movementType: MovementType)
-	{
+
+
+	constructor(position: P5.Vector, radius: number, speed: number, movementType: MovementType) {
 		this.radius = radius;
 		this.position = CustomMath.clampToScreen(position, this.radius);
 		this.speed = speed;
@@ -31,35 +29,28 @@ export default class Planet{
 		this.movementType = movementType;
 		this.dragging = false;
 
-		if(movementType == MovementType.RANDOM)
-		{
+		if (movementType == MovementType.RANDOM) {
 			this.generateRandomPosition();
 		}
 	}
 
-	draw = () =>
-	{
+	draw = () => {
 		Renderer.drawImage(this.sprite, this.position.x, this.position.y, this.diameter, this.diameter, Color.white, "center")
 	}
 
-	move = (target?: P5.Vector) =>
-	{
-		if(this.dragging)
-		{
+	move = (target?: P5.Vector) => {
+		if (this.dragging) {
 			this.position = CustomMath.clampToScreen(new Vector(Game.p5.mouseX, Game.p5.mouseY), this.radius);
 		}
-		if(this.movementType == MovementType.RANDOM)
-		{
-			if(this.position.x == this.target.x && this.position.y == this.position.y)
+		if (this.movementType == MovementType.RANDOM) {
+			if (this.position.x == this.target.x && this.position.y == this.position.y)
 				this.generateRandomPosition();
 
 			this.position = CustomMath.moveTowardsVector(this.position, this.target, this.speed * Game.frameTime * 10);
 
 		}
-		else
-		{
-			if(target == undefined)
-			{
+		else {
+			if (target == undefined) {
 				throw "Target not specified";
 			}
 
@@ -67,8 +58,7 @@ export default class Planet{
 		}
 	}
 
-	generateRandomPosition = () =>
-	{
+	generateRandomPosition = () => {
 		this.target = new Vector(
 			CustomMath.randomRange(this.radius, Constants.screenDimensions.x - this.radius),
 			CustomMath.randomRange(this.radius, Constants.screenDimensions.y - this.radius)

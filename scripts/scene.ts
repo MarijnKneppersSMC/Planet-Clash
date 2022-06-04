@@ -57,10 +57,8 @@ export default class SceneHandler {
 		}
 	}
 
-	static touchEnded()
-	{
-		switch(Game.scene)
-		{
+	static touchEnded() {
+		switch (Game.scene) {
 			case SceneType.LEVEL:
 				LevelScreen.touchEnded();
 				break;

@@ -6,13 +6,11 @@ import Color from "./color";
 import Constants from "./constants";
 import SceneHandler, { SceneType } from "./scene";
 
-const sketch = (p5: P5) =>
-{
+const sketch = (p5: P5) => {
 	let canvas: P5.Renderer;
 	let font: P5.Font;
 
-	p5.preload = () =>
-	{
+	p5.preload = () => {
 		Game.p5 = p5;
 
 		Renderer.preload();
@@ -26,8 +24,7 @@ const sketch = (p5: P5) =>
 		font = p5.loadFont('fonts/Acme-7-Wide.otf');
 	}
 
-	p5.setup = () =>
-	{
+	p5.setup = () => {
 		Game.startTime = p5.millis();
 		Game.frameTime = p5.millis();
 
@@ -39,16 +36,15 @@ const sketch = (p5: P5) =>
 		Game.p5.noSmooth()
 
 		Game.p5.textFont(font);
-		
+
 		Game.reset();
 
 	}
 
-	p5.draw = () =>
-	{
+	p5.draw = () => {
 		Game.passedTime = p5.millis() - Game.startTime;
 
-		Game.frameTime = (p5.millis() - Game.lastFrame)/1000;
+		Game.frameTime = (p5.millis() - Game.lastFrame) / 1000;
 
 		Game.lastFrame = p5.millis();
 
@@ -59,40 +55,34 @@ const sketch = (p5: P5) =>
 		SceneHandler.drawScene();
 	}
 
-	p5.touchStarted = () =>
-	{
-		if(!(p5.mouseX > 0 && p5.mouseX < Constants.screenDimensions.x && p5.mouseY > 0 && p5.mouseY < Constants.screenDimensions.y))
-		{
+	p5.touchStarted = () => {
+		if (!(p5.mouseX > 0 && p5.mouseX < Constants.screenDimensions.x && p5.mouseY > 0 && p5.mouseY < Constants.screenDimensions.y)) {
 			return;
 		}
 
 		SceneHandler.touchStarted();
 	}
 
-	p5.touchEnded = () =>
-	{
+	p5.touchEnded = () => {
 		SceneHandler.touchEnded();
 	}
 
-	p5.windowResized = () =>
-	{
+	p5.windowResized = () => {
 		//sadly, the p5.resizeCanvas function did not work, so I created my own version
 
 		let canvas: HTMLElement = document.getElementById("defaultCanvas0");
 
-		if(Game.p5.fullscreen())
-		{
+		if (Game.p5.fullscreen()) {
 			let xScale: number = window.innerWidth / Constants.screenDimensions.x;
 			let yScale: number = window.innerHeight / Constants.screenDimensions.y;
 
-			let smallestScale: number = (xScale < yScale)? xScale : yScale;
+			let smallestScale: number = (xScale < yScale) ? xScale : yScale;
 
 			canvas.style.width = (Constants.screenDimensions.x * smallestScale).toString();
 			canvas.style.height = (Constants.screenDimensions.y * smallestScale).toString();
 			return;
 		}
-		else
-		{
+		else {
 			canvas.style.width = Constants.screenDimensions.x.toString();
 			canvas.style.height = Constants.screenDimensions.y.toString();
 			return;
@@ -102,8 +92,7 @@ const sketch = (p5: P5) =>
 
 new P5(sketch);
 
-export default class Game
-{
+export default class Game {
 	static p5: P5;
 	static scene: SceneType;
 	static level: number;
@@ -115,8 +104,7 @@ export default class Game
 	static dragging: boolean;
 	static draggedPlanetIndex: number;
 
-	static get mousePosition()
-	{
+	static get mousePosition() {
 		return new Vector(this.p5.mouseX, this.p5.mouseY);
 	}
 

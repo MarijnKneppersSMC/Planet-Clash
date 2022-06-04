@@ -1,8 +1,7 @@
 import p5 from "p5";
 import Game from "./main"
 
-type AudioClips = 
-{
+type AudioClips = {
 	ambient: p5.MediaElement
 }
 
@@ -16,14 +15,12 @@ export default class Audio {
 		this.audioClips.ambient = this.loadAudio("ambient.ogg", true, true);
 	}
 
-	static loadAudio(fileName: string, autoplay: boolean = false, loop: boolean = false)
-	{
+	static loadAudio(fileName: string, autoplay: boolean = false, loop: boolean = false) {
 		let audio: p5.MediaElement = Game.p5.createAudio(`./audio/${fileName}`)
 
 		audio.autoplay(autoplay);
 
-		if(loop)
-		{
+		if (loop) {
 			audio.loop();
 		}
 

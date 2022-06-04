@@ -6,7 +6,6 @@ import Constants from "../constants";
 import CustomMath from "../math";
 import { Vector } from "p5";
 
-
 export default class TitleScreen {
 
 	static fullscreenPosition: Vector = new Vector(Constants.screenDimensions.x - 42, Constants.screenDimensions.y - 42);
@@ -22,8 +21,7 @@ export default class TitleScreen {
 
 	static touchStarted() {
 
-		if(CustomMath.checkSquarePointCollision(this.fullscreenPosition, 32, 32, Game.mousePosition))
-		{
+		if (CustomMath.checkSquarePointCollision(this.fullscreenPosition, 32, 32, Game.mousePosition)) {
 			Game.p5.fullscreen(!Game.p5.fullscreen());
 			return;
 		}

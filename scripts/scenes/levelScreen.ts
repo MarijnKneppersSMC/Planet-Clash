@@ -36,16 +36,14 @@ export default class LevelScreen {
 
 		this.planets = [];
 
-		for(let i: number = 0; i < this.currentLevel.planets.length; i++)
-		{
+		for (let i: number = 0; i < this.currentLevel.planets.length; i++) {
 			let planet: PlanetData = this.currentLevel.planets[i];
 			this.planets.push(new Planet(planet.position, planet.radius, planet.speed, this.currentLevel.movementType));
 		}
 	}
 
 	static draw() {
-		for(let i: number = 0; i < this.planets.length; i++)
-		{
+		for (let i: number = 0; i < this.planets.length; i++) {
 			this.planets[i].draw();
 		}
 
@@ -69,29 +67,22 @@ export default class LevelScreen {
 			SceneHandler.initializeScene(SceneType.LEVEL);
 		}
 
-		for(let i: number = 0; i < this.planets.length; i++)
-		{
-			if(this.currentLevel.movementType == MovementType.RANDOM)
-			{
+		for (let i: number = 0; i < this.planets.length; i++) {
+			if (this.currentLevel.movementType == MovementType.RANDOM) {
 				this.planets[i].move();
 			}
-			else
-			{
+			else {
 				this.planets[i].move(this.planets[CustomMath.clampWithOverflow(i + 2, 0, 3)].position);
 			}
 		}
 
-		for(let i: number = 0; i < this.planets.length;i++)
-		{
-			for(let j: number = 0; j < this.planets.length;j++)
-			{
-				if(i == j)
-				{
+		for (let i: number = 0; i < this.planets.length; i++) {
+			for (let j: number = 0; j < this.planets.length; j++) {
+				if (i == j) {
 					continue;
 				}
-				
-				if(CustomMath.checkCircleCollision(this.planets[i].position, this.planets[i].radius, this.planets[j].position, this.planets[j].radius))
-				{
+
+				if (CustomMath.checkCircleCollision(this.planets[i].position, this.planets[i].radius, this.planets[j].position, this.planets[j].radius)) {
 					Game.success = false;
 					SceneHandler.initializeScene(SceneType.ENDING);
 				}
@@ -99,16 +90,13 @@ export default class LevelScreen {
 		}
 	}
 
-	static touchStarted() 
-	{
-		if(Game.dragging)
+	static touchStarted() {
+		if (Game.dragging)
 			return;
-		
-		for(let i: number = 0; i < this.planets.length; i++)
-		{
+
+		for (let i: number = 0; i < this.planets.length; i++) {
 			let planet: Planet = this.planets[i];
-			if(CustomMath.checkCirclePointCollision(planet.position, planet.radius, new Vector(Game.p5.mouseX, Game.p5.mouseY)))
-			{
+			if (CustomMath.checkCirclePointCollision(planet.position, planet.radius, new Vector(Game.p5.mouseX, Game.p5.mouseY))) {
 				this.planets[i].dragging = true;
 				Game.draggedPlanetIndex = i;
 				break;
@@ -116,10 +104,8 @@ export default class LevelScreen {
 		}
 	}
 
-	static touchEnded()
-	{
-		if(Game.draggedPlanetIndex != -1)
-		{
+	static touchEnded() {
+		if (Game.draggedPlanetIndex != -1) {
 			this.planets[Game.draggedPlanetIndex].dragging = false;
 			Game.draggedPlanetIndex = -1;
 			Game.dragging = false;
