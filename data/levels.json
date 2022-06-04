@@ -203,7 +203,7 @@
 		{
 			"name": "linked contrast",
 			"duration": 15,
-			"nextLevel": 4,
+			"nextLevel": "end",
 			"movementType": "linked",
 			"planets": [
 				{
