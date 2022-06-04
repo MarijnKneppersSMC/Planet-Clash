@@ -16,7 +16,6 @@ You could technically play on mobile, but p5.js has several problems. Some of th
 - p5.js doesn't cancel events so moving your finger moves the page around
 
 ## TODO
-- add more levels
 - final pass over all my code
 
 ## Is this really object oriented?

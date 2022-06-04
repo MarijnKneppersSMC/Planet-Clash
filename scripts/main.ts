@@ -9,6 +9,7 @@ import SceneHandler, { SceneType } from "./scene";
 const sketch = (p5: P5) =>
 {
 	let canvas: P5.Renderer;
+	let font: P5.Font;
 
 	p5.preload = () =>
 	{
@@ -21,6 +22,8 @@ const sketch = (p5: P5) =>
 		Audio.preload();
 
 		Color.initializeColors();
+
+		font = p5.loadFont('fonts/Acme-7-Wide.otf');
 	}
 
 	p5.setup = () =>
@@ -34,6 +37,8 @@ const sketch = (p5: P5) =>
 		Renderer.drawImage(Renderer.images.background);
 
 		Game.p5.noSmooth()
+
+		Game.p5.textFont(font);
 		
 		Game.reset();
 

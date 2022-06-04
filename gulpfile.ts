@@ -13,6 +13,11 @@ async function buildData()
 	return gulp.src(["data/**"]).pipe(gulp.dest("dest/data")).pipe(connect.reload());
 }
 
+async function buildFonts()
+{
+	return gulp.src(["fonts/**"]).pipe(gulp.dest("dest/fonts")).pipe(connect.reload());
+}
+
 function buildImage() {
 	return gulp.src('images/**')
 	.pipe(gulp.dest('dest/images'));
@@ -51,9 +56,10 @@ function watch() {
 	gulp.watch(["./audio/**"], buildAudio);
 	gulp.watch(["./images/**"], buildImage);
 	gulp.watch(["./data/**"], buildData);
+	gulp.watch(["./fonts/**"], buildFonts);
 }
 
-const build = gulp.parallel(buildHTML, buildJS, buildImage, buildAudio, buildData);
+const build = gulp.parallel(buildHTML, buildJS, buildImage, buildAudio, buildData, buildFonts);
 
 exports.build = build;
 exports.start = gulp.series(build, gulp.parallel(server, watch));

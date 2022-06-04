@@ -49,9 +49,9 @@ export default class LevelScreen {
 			this.planets[i].draw();
 		}
 
-		Renderer.drawText(`Level ${Game.level} - ${this.currentLevel.name}`, 20, 1, 1, Color.white, "left", "top");
-		Renderer.drawImage(Renderer.images.timer, 0, 20);
-		Renderer.drawText(this.timeLeft.toFixed(1).toString(), 20, 32, 28, Color.white, "left", "top");
+		Renderer.drawText(`Level ${Game.level} - ${this.currentLevel.name}`, 15, 1, 1, Color.white, "left", "top");
+		Renderer.drawImage(Renderer.images.timer, 0, 25);
+		Renderer.drawText(this.timeLeft.toFixed(1).toString(), 15, 32, 28, Color.white, "left", "top");
 	}
 
 	static update() {
