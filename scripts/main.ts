@@ -21,7 +21,7 @@ const sketch = (p5: P5) => {
 
 		Color.initializeColors();
 
-		font = p5.loadFont('fonts/Acme-7-Wide.otf');
+		font = p5.loadFont('fonts/Acme-7-Wide.ttf');
 	}
 
 	p5.setup = () => {
