@@ -5,7 +5,6 @@ import LevelScreen from "./scenes/levelScreen";
 import Color from "./color";
 import Constants from "./constants";
 import SceneHandler, { SceneType } from "./scene";
-import "p5/lib/addons/p5.sound";
 
 const sketch = (p5: P5) => {
 	let canvas: P5.Renderer;
