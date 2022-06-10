@@ -11,14 +11,12 @@ export default class Audio {
 		ambient: undefined
 	};
 
-	static preload() {
-		this.audioClips.ambient = this.loadAudio("ambient.ogg", true, true);
+	static load() {
+		this.audioClips.ambient = this.loadAudio("ambient.ogg", false, true);
 	}
 
 	static loadAudio(fileName: string, autoplay: boolean = false, loop: boolean = false) {
-		let audio: p5.MediaElement = Game.p5.createAudio(`./audio/${fileName}`)
-
-		audio.autoplay(autoplay);
+		let audio: p5.MediaElement = Game.p5.createAudio(`./audio/${fileName}`).autoplay(autoplay)
 
 		if (loop) {
 			audio.loop();

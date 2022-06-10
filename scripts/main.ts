@@ -5,10 +5,12 @@ import LevelScreen from "./scenes/levelScreen";
 import Color from "./color";
 import Constants from "./constants";
 import SceneHandler, { SceneType } from "./scene";
+import "p5/lib/addons/p5.sound";
 
 const sketch = (p5: P5) => {
 	let canvas: P5.Renderer;
 	let font: P5.Font;
+	let startedMusic: boolean = false;
 
 	p5.preload = () => {
 		Game.p5 = p5;
@@ -16,8 +18,6 @@ const sketch = (p5: P5) => {
 		Renderer.preload();
 
 		LevelScreen.preload();
-
-		Audio.preload();
 
 		Color.initializeColors();
 
@@ -58,6 +58,12 @@ const sketch = (p5: P5) => {
 	p5.touchStarted = () => {
 		if (!(p5.mouseX > 0 && p5.mouseX < Constants.screenDimensions.x && p5.mouseY > 0 && p5.mouseY < Constants.screenDimensions.y)) {
 			return;
+		}
+
+		if(!startedMusic)
+		{
+			startedMusic = true;
+			Audio.load();
 		}
 
 		SceneHandler.touchStarted();
